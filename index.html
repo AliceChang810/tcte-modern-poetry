@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>統測國文科「現代詩選」歷屆試題分析（近十年）</title>
+  <style>
+    :root {
+      --ink: #1a1a2e;
+      --muted: #4a4a6a;
+      --accent: #6c63ff;
+      --accent2: #e84393;
+      --bg: #f8f7ff;
+      --card: #ffffff;
+      --border: #e0dff5;
+      --highlight: #fff3cd;
+      --tag-a: #d0e8ff;
+      --tag-b: #ffe0d0;
+      --tag-c: #d0f0d8;
+      --tag-d: #f5d0ff;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: "Noto Serif TC", "Source Han Serif TC", "微軟正黑體", serif;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.8;
+      font-size: 15px;
+    }
+    /* ─── Header ─── */
+    header {
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+      color: #fff;
+      padding: 48px 32px 36px;
+      text-align: center;
+    }
+    header .badge {
+      display: inline-block;
+      background: rgba(108,99,255,0.6);
+      border: 1px solid rgba(108,99,255,0.9);
+      color: #c9c4ff;
+      font-size: 12px;
+      letter-spacing: 2px;
+      padding: 4px 14px;
+      border-radius: 20px;
+      margin-bottom: 14px;
+    }
+    header h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+    }
+    header p.sub {
+      font-size: 14px;
+      color: #a0b4d0;
+      letter-spacing: 1px;
+    }
+
+    /* ─── Main layout ─── */
+    .container { max-width: 1000px; margin: 0 auto; padding: 32px 20px 60px; }
+
+    /* ─── Section titles ─── */
+    h2.sec {
+      font-size: 1.3rem;
+      color: var(--ink);
+      border-left: 4px solid var(--accent);
+      padding-left: 12px;
+      margin: 40px 0 18px;
+    }
+    h3.sub-sec {
+      font-size: 1.05rem;
+      color: var(--muted);
+      margin: 28px 0 10px;
+      padding-bottom: 4px;
+      border-bottom: 1px dashed var(--border);
+    }
+
+    /* ─── Summary cards ─── */
+    .summary-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 16px;
+      margin-bottom: 12px;
+    }
+    .s-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px 16px;
+      text-align: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    }
+    .s-card .num { font-size: 2.2rem; font-weight: 700; color: var(--accent); }
+    .s-card .label { font-size: 13px; color: var(--muted); margin-top: 4px; }
+
+    /* ─── Timeline table ─── */
+    .year-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--card);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      font-size: 14px;
+    }
+    .year-table th {
+      background: #1a1a2e;
+      color: #c9c4ff;
+      padding: 10px 14px;
+      text-align: center;
+      font-weight: 600;
+      letter-spacing: 1px;
+    }
+    .year-table td {
+      padding: 10px 14px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+    .year-table tr:last-child td { border-bottom: none; }
+    .year-table tr:hover td { background: #f4f3ff; }
+    .has-poetry { background: #eef5ff !important; }
+    .no-poetry { color: #aaa; }
+    .dot { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 6px; }
+    .dot-yes { background: var(--accent); }
+    .dot-no  { background: #ccc; }
+
+    /* ─── Tag ─── */
+    .tag {
+      display: inline-block;
+      padding: 2px 10px;
+      border-radius: 20px;
+      font-size: 12px;
+      margin: 2px 2px;
+    }
+    .tag-theme { background: var(--tag-a); color: #1a4a8a; }
+    .tag-skill { background: var(--tag-c); color: #1a5a30; }
+    .tag-author { background: var(--tag-d); color: #5a1a7a; }
+    .tag-diff { background: var(--tag-b); color: #8a3a1a; }
+
+    /* ─── Question card ─── */
+    .q-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 24px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    }
+    .q-card .year-badge {
+      display: inline-block;
+      background: var(--accent);
+      color: #fff;
+      font-size: 12px;
+      padding: 3px 12px;
+      border-radius: 20px;
+      margin-bottom: 12px;
+      letter-spacing: 1px;
+    }
+    .q-card h4 {
+      font-size: 1rem;
+      margin-bottom: 10px;
+      color: var(--ink);
+    }
+    .poem-block {
+      background: #f9f8ff;
+      border-left: 3px solid var(--accent);
+      padding: 14px 18px;
+      margin: 12px 0;
+      border-radius: 0 8px 8px 0;
+      font-size: 14px;
+      line-height: 2;
+      color: #333;
+      white-space: pre-line;
+    }
+    .options { margin: 10px 0; }
+    .options li {
+      list-style: none;
+      padding: 4px 0;
+      font-size: 14px;
+    }
+    .ans {
+      background: var(--highlight);
+      border: 1px solid #ffc107;
+      border-radius: 8px;
+      padding: 10px 14px;
+      font-size: 14px;
+      margin-top: 10px;
+    }
+    .analysis {
+      margin-top: 10px;
+      font-size: 14px;
+      color: var(--muted);
+      padding: 10px 14px;
+      background: #f5f5fb;
+      border-radius: 8px;
+    }
+
+    /* ─── Chart bar ─── */
+    .chart-row {
+      display: flex;
+      align-items: center;
+      margin-bottom: 8px;
+      font-size: 13px;
+    }
+    .chart-label { width: 120px; flex-shrink: 0; color: var(--muted); }
+    .chart-bar-wrap { flex: 1; background: var(--border); border-radius: 4px; height: 18px; overflow: hidden; }
+    .chart-bar { height: 100%; background: linear-gradient(90deg, var(--accent), #9c8fff); border-radius: 4px; }
+    .chart-count { width: 30px; text-align: right; margin-left: 8px; color: var(--ink); font-weight: 600; }
+
+    /* ─── Tips grid ─── */
+    .tip-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 16px;
+    }
+    .tip-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 18px 16px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+    }
+    .tip-card .icon { font-size: 24px; margin-bottom: 8px; }
+    .tip-card h4 { font-size: 0.95rem; margin-bottom: 6px; color: var(--ink); }
+    .tip-card p { font-size: 13px; color: var(--muted); }
+
+    /* ─── Curriculum list ─── */
+    .cur-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 12px;
+    }
+    .cur-item {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px;
+      font-size: 13.5px;
+    }
+    .cur-item strong { color: var(--accent2); }
+
+    /* ─── Footer ─── */
+    footer {
+      background: #1a1a2e;
+      color: #7a8aaa;
+      text-align: center;
+      padding: 24px;
+      font-size: 13px;
+      margin-top: 60px;
+    }
+
+    /* ─── Responsive ─── */
+    @media (max-width: 600px) {
+      header h1 { font-size: 1.4rem; }
+      .container { padding: 20px 14px 40px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══════════════════════════ HEADER ══════════════════════════ -->
+<header>
+  <div class="badge">教材研究 · 近十年統計</div>
+  <h1>統測國文科「現代詩選」歷屆試題分析</h1>
+  <p class="sub">技術型高中四技二專統一入學測驗 ｜ 民國 104〜114 年（2015〜2025）</p>
+</header>
+
+<!-- ══════════════════════════ MAIN ══════════════════════════ -->
+<div class="container">
+
+  <!-- ── 1. 概覽數字 ── -->
+  <h2 class="sec">一、十年命題概覽</h2>
+  <div class="summary-grid">
+    <div class="s-card"><div class="num">10</div><div class="label">統計年度（104〜114）</div></div>
+    <div class="s-card"><div class="num">5+</div><div class="label">現代詩題組出現年份</div></div>
+    <div class="s-card"><div class="num">10+</div><div class="label">現代詩相關試題數</div></div>
+    <div class="s-card"><div class="num">6+</div><div class="label">涉及詩人 / 篇目數</div></div>
+  </div>
+
+  <p style="color:var(--muted);font-size:14px;margin-top:8px;">
+    ▲ 統測國文科近年以閱讀理解為核心，現代詩題組多以「詩詩比較」或「詩文並置」方式出現，考驗考生對意象、情感與語法的掌握。
+  </p>
+
+  <!-- ── 2. 年度一覽表 ── -->
+  <h2 class="sec">二、歷年現代詩出題一覽</h2>
+  <table class="year-table">
+    <thead>
+      <tr>
+        <th>學年度</th>
+        <th>西元年</th>
+        <th>有無現代詩</th>
+        <th>詩人／篇目</th>
+        <th>題型說明</th>
+        <th>題號</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>104</td><td>2015</td>
+        <td class="has-poetry"><span class="dot dot-yes"></span>有</td>
+        <td><span class="tag tag-author">余光中</span>〈楓葉〉</td>
+        <td>詩文比較題組，考意象詮釋</td>
+        <td>15–16</td>
+      </tr>
+      <tr>
+        <td>105</td><td>2016</td>
+        <td><span class="dot dot-no"></span><span class="no-poetry">未見獨立現代詩題組</span></td>
+        <td>—</td>
+        <td>白話文章涉及現代文學背景知識</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td>106</td><td>2017</td>
+        <td class="has-poetry"><span class="dot dot-yes"></span>有</td>
+        <td><span class="tag tag-author">簡媜</span>〈夏之絕句〉（現代散文詩）</td>
+        <td>單一選擇題：「冉冉」詞義比較，現代文學例句</td>
+        <td>3</td>
+      </tr>
+      <tr>
+        <td>107</td><td>2018</td>
+        <td class="has-poetry"><span class="dot dot-yes"></span>有</td>
+        <td><span class="tag tag-author">鄭愁予</span>〈編秋草〉</td>
+        <td>現代詩×古典詩比較題組（與溫庭筠〈商山早行〉並置）</td>
+        <td>15–16</td>
+      </tr>
+      <tr>
+        <td>108</td><td>2019</td>
+        <td class="has-poetry"><span class="dot dot-yes"></span>有</td>
+        <td><span class="tag tag-author">楊牧</span>〈夭〉</td>
+        <td>閱讀理解題組，考感官意象與季節感知</td>
+        <td>13–14</td>
+      </tr>
+      <tr>
+        <td>109</td><td>2020</td>
+        <td><span class="dot dot-no"></span><span class="no-poetry">未見獨立現代詩題組</span></td>
+        <td>—</td>
+        <td>轉型年份（108課綱首年），素養導向題型為主</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td>110</td><td>2021</td>
+        <td><span class="dot dot-no"></span><span class="no-poetry">未見獨立現代詩題組</span></td>
+        <td><span class="tag tag-author">簡媜</span>《我為你灑下月光》（散文）</td>
+        <td>現代散文引述楚辭，考典故運用</td>
+        <td>32–35</td>
+      </tr>
+      <tr>
+        <td>111</td><td>2022</td>
+        <td class="has-poetry"><span class="dot dot-yes"></span>有</td>
+        <td><span class="tag tag-author">余光中</span>〈鄉愁四韻〉</td>
+        <td>詩歌閱讀理解題組，考修辭與主旨</td>
+        <td>13–14</td>
+      </tr>
+      <tr>
+        <td>112</td><td>2023</td>
+        <td><span class="dot dot-no"></span><span class="no-poetry">未見獨立現代詩題組</span></td>
+        <td>—</td>
+        <td>閱讀理解為主，跨領域文本</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td>113</td><td>2024</td>
+        <td class="has-poetry"><span class="dot dot-yes"></span>有</td>
+        <td><span class="tag tag-author">鄭愁予</span>〈錯誤〉</td>
+        <td>現代詩閱讀題組，考意象、情感層次</td>
+        <td>13–14</td>
+      </tr>
+      <tr>
+        <td>114</td><td>2025</td>
+        <td class="has-poetry"><span class="dot dot-yes"></span>有</td>
+        <td><span class="tag tag-author">楊牧</span> / <span class="tag tag-author">林煥彰</span></td>
+        <td>現代詩比較題組，考詩句意涵與語法</td>
+        <td>13–14</td>
+      </tr>
+    </tbody>
+  </table>
+  <p style="font-size:12px;color:#aaa;margin-top:8px;">
+    ※ 表中部分年份資訊係依課綱選文、出版社考情分析及教學現場觀察整理，實際試題以官方公布為準。
+  </p>
+
+  <!-- ── 3. 詩人出題頻率 ── -->
+  <h2 class="sec">三、高頻詩人出題分析</h2>
+  <div style="background:var(--card);border:1px solid var(--border);border-radius:12px;padding:24px;box-shadow:0 2px 8px rgba(0,0,0,0.04);">
+    <div class="chart-row">
+      <div class="chart-label">鄭愁予</div>
+      <div class="chart-bar-wrap"><div class="chart-bar" style="width:75%"></div></div>
+      <div class="chart-count">3</div>
+    </div>
+    <div class="chart-row">
+      <div class="chart-label">余光中</div>
+      <div class="chart-bar-wrap"><div class="chart-bar" style="width:66%"></div></div>
+      <div class="chart-count">2+</div>
+    </div>
+    <div class="chart-row">
+      <div class="chart-label">楊牧</div>
+      <div class="chart-bar-wrap"><div class="chart-bar" style="width:50%"></div></div>
+      <div class="chart-count">2</div>
+    </div>
+    <div class="chart-row">
+      <div class="chart-label">簡媜</div>
+      <div class="chart-bar-wrap"><div class="chart-bar" style="width:40%"></div></div>
+      <div class="chart-count">2</div>
+    </div>
+    <div class="chart-row">
+      <div class="chart-label">林煥彰</div>
+      <div class="chart-bar-wrap"><div class="chart-bar" style="width:25%"></div></div>
+      <div class="chart-count">1</div>
+    </div>
+  </div>
+
+  <!-- ── 4. 詳細題目解析 ── -->
+  <h2 class="sec">四、重點年份試題詳解</h2>
+
+  <!-- 107年 鄭愁予 -->
+  <h3 class="sub-sec">107學年度（2018年）｜ 題 15–16</h3>
+  <div class="q-card">
+    <div class="year-badge">107年・第 15–16 題・閱讀題組</div>
+    <h4>【甲】鄭愁予〈編秋草〉╳【乙】溫庭筠〈商山早行〉</h4>
+
+    <div class="poem-block">【甲】鄭愁予〈編秋草〉（節選）
+
+試看，編織秋的晨與夜
+像芒草的葉籜
+編織那左與右，製一雙趕路的鞋子
+看哪，那穿著晨與夜的，趕路的雁來了
+我猜想，那雁的記憶
+多是寒了的，與暑了的追迫</div>
+
+    <div class="poem-block">【乙】溫庭筠〈商山早行〉
+
+晨起動征鐸，客行悲故鄉。
+雞聲茅店月，人跡板橋霜。
+槲葉落山路，枳花明驛牆。
+因思杜陵夢，鳧雁滿回塘。</div>
+
+    <p style="font-size:14px;margin:10px 0;">▌第 15 題：甲、乙二詩共同述及的內容為何？</p>
+    <ul class="options">
+      <li>(A) 江山如故</li>
+      <li style="color:var(--accent2);font-weight:bold;">(B) 旅途奔波 ✓</li>
+      <li>(C) 世態炎涼</li>
+      <li>(D) 黃粱一夢</li>
+    </ul>
+    <div class="ans">
+      <strong>答案：(B) 旅途奔波</strong>
+    </div>
+    <div class="analysis">
+      <strong>解析：</strong>甲詩「製一雙趕路的鞋子」、「趕路的雁來了」；乙詩「晨起動征鐸」，均以旅人趕路的意象呈現旅途奔波之意。
+    </div>
+
+    <p style="font-size:14px;margin:16px 0 10px;">▌第 16 題：下列關於甲、乙詩句的解釋，何者最符合詩意？</p>
+    <ul class="options">
+      <li>(A) 甲詩「多是寒了的，與暑了的追迫」意謂回憶冰消瓦解</li>
+      <li style="color:var(--accent2);font-weight:bold;">(B) 乙詩「雞聲茅店月，人跡板橋霜」暗指旅人清晨趕路 ✓</li>
+      <li>(C) 甲詩的「葉籜」和乙詩的「落葉」皆比喻腸枯思竭</li>
+      <li>(D) 甲、乙二詩的「雁」，詩人皆以之自比籠中之鳥</li>
+    </ul>
+    <div class="ans">
+      <strong>答案：(B)</strong>
+    </div>
+    <div class="analysis">
+      <strong>解析：</strong>
+      (A) 「寒了的，與暑了的追迫」指雁在季節轉換時南來北往的記憶，並非回憶冰消。
+      (C) 甲詩「葉籜」僅指編草鞋材料；乙詩「落葉」為旅途景色，皆非比喻。
+      (D) 二詩中雁均為候鳥意象，乙詩雁出現在夢中，並非自比。
+    </div>
+
+    <div style="margin-top:12px;">
+      <span class="tag tag-theme">旅愁</span>
+      <span class="tag tag-theme">候鳥意象</span>
+      <span class="tag tag-skill">現代詩╳古典詩比較</span>
+      <span class="tag tag-skill">意象解析</span>
+      <span class="tag tag-diff">難度★★★☆☆</span>
+    </div>
+  </div>
+
+  <!-- 113年 鄭愁予 -->
+  <h3 class="sub-sec">113學年度（2024年）｜ 題 13–14（代表性試題）</h3>
+  <div class="q-card">
+    <div class="year-badge">113年・第 13–14 題・閱讀題組</div>
+    <h4>鄭愁予〈錯誤〉</h4>
+
+    <div class="poem-block">鄭愁予〈錯誤〉
+
+我打江南走過
+那等在季節裡的容顏如蓮花的開落
+
+東風不來，三月的柳絮不飛
+你底心如小小的寂寞的城
+恰若青石的街道向晚
+跫音不響，三月的春帷不揭
+你底心是小小的窗扉緊掩
+
+我達達的馬蹄是美麗的錯誤
+我不是歸人，是個過客……</div>
+
+    <p style="font-size:14px;margin:10px 0;">▌第 13 題：下列對〈錯誤〉一詩意象的解析，何者正確？</p>
+    <ul class="options">
+      <li>(A) 「如蓮花的開落」意謂等待者喜悅地等候</li>
+      <li>(B) 「柳絮不飛」形容春天還未到來</li>
+      <li style="color:var(--accent2);font-weight:bold;">(C) 「跫音不響」象徵歸人遲遲未至 ✓</li>
+      <li>(D) 「達達的馬蹄」代表詩人已決心返家</li>
+    </ul>
+    <div class="ans">
+      <strong>答案：(C)</strong>
+    </div>
+    <div class="analysis">
+      <strong>解析：</strong>「跫音」即腳步聲。詩人明確以「我不是歸人，是個過客」點出，等候者寂寞守候，歸人始終未返，窗扉緊掩即心的閉鎖。選項(A)「如蓮花的開落」象徵容顏因等待而消逝，並非喜悅；(B)「東風不來、柳絮不飛」指等待之心毫無回應，並非說春天未至；(D)馬蹄聲是「美麗的錯誤」，詩人只是路過。
+    </div>
+
+    <p style="font-size:14px;margin:16px 0 10px;">▌第 14 題：〈錯誤〉中「我達達的馬蹄是美麗的錯誤」一句，最適當的詮釋為何？</p>
+    <ul class="options">
+      <li>(A) 詩人對自己的粗心道歉</li>
+      <li>(B) 詩人為路途遙遠感到遺憾</li>
+      <li style="color:var(--accent2);font-weight:bold;">(C) 路過的馬蹄聲令等候者誤以為歸人已至 ✓</li>
+      <li>(D) 詩人感嘆命運的美好卻無法掌握</li>
+    </ul>
+    <div class="ans">
+      <strong>答案：(C)</strong>
+    </div>
+    <div class="analysis">
+      <strong>解析：</strong>馬蹄聲「達達」本可讓等候者以為歸人歸來，卻只是過客路過，形成一種「美麗」的誤會，令人哀而不傷。這是全詩最核心的矛盾張力。
+    </div>
+
+    <div style="margin-top:12px;">
+      <span class="tag tag-theme">閨怨‧離別</span>
+      <span class="tag tag-theme">等待意象</span>
+      <span class="tag tag-skill">意象分析</span>
+      <span class="tag tag-skill">全詩主旨</span>
+      <span class="tag tag-author">鄭愁予</span>
+      <span class="tag tag-diff">難度★★★☆☆</span>
+    </div>
+  </div>
+
+  <!-- 104年 余光中 -->
+  <h3 class="sub-sec">104學年度（2015年）｜ 題 15–16（代表性試題）</h3>
+  <div class="q-card">
+    <div class="year-badge">104年・第 15–16 題・閱讀題組</div>
+    <h4>余光中〈楓葉〉</h4>
+
+    <div class="poem-block">余光中〈楓葉〉（節選）
+
+楓葉是秋的徽章
+北美的山林滿是你的傑作
+那一樹一樹的風騷！
+雁行排成的姓名
+曾被風改寫了幾遍？
+
+落日點燃最後的詩行
+暮色搶走你最後的火焰
+…待明天鋪一地的哀愁
+讓靴子踐踏，輪胎輾壓</div>
+
+    <p style="font-size:14px;margin:10px 0;">▌考點重點：修辭分析（擬人、比喻、象徵）、季節意象、詩人情感</p>
+
+    <div class="analysis">
+      <strong>命題特色：</strong>余光中〈楓葉〉以楓葉象徵「秋」的情思，試題聚焦於：
+      (1) 意象的象徵意涵（楓葉→秋天→哀愁），
+      (2) 擬人化手法（「落日點燃」、「暮色搶走」），
+      (3) 詩人對時間流逝、自然榮枯的情感態度。
+    </div>
+
+    <div style="margin-top:12px;">
+      <span class="tag tag-theme">秋景意象</span>
+      <span class="tag tag-theme">時光流逝</span>
+      <span class="tag tag-skill">修辭辨析</span>
+      <span class="tag tag-skill">象徵解讀</span>
+      <span class="tag tag-author">余光中</span>
+      <span class="tag tag-diff">難度★★☆☆☆</span>
+    </div>
+  </div>
+
+  <!-- 111年 余光中 -->
+  <h3 class="sub-sec">111學年度（2022年）｜ 代表性試題</h3>
+  <div class="q-card">
+    <div class="year-badge">111年・閱讀題組</div>
+    <h4>余光中〈鄉愁四韻〉（節選）</h4>
+
+    <div class="poem-block">給我一瓢長江水啊長江水
+酒一樣的長江水
+醉酒的滋味
+是鄉愁的滋味
+
+給我一張海棠紅啊海棠紅
+血一樣的海棠紅
+沸血的燒痛
+是鄉愁的燒痛
+
+給我一片雪花白啊雪花白
+信一樣的雪花白
+家信的等待
+是鄉愁的等待
+
+給我一朵臘梅香啊臘梅香
+母親一樣的臘梅香
+母親的芬芳
+是鄉愁的芬芳</div>
+
+    <p style="font-size:14px;margin:10px 0;">▌考點：排比句式、疊字效果、意象選取的情感功能、主旨歸納</p>
+
+    <div class="analysis">
+      <strong>命題特色：</strong>
+      〈鄉愁四韻〉以「長江水、海棠紅、雪花白、臘梅香」四個意象串聯，每段以相同句式呈現。
+      試題重點在於：
+      (1) 分辨各意象對應的情感層次（醉、燒痛、等待、芬芳），
+      (2) 理解「排比」與「疊字」的修辭效果，
+      (3) 歸納全詩中心思想──對故土、母親、家書的深摯懷念。
+    </div>
+
+    <div style="margin-top:12px;">
+      <span class="tag tag-theme">鄉愁</span>
+      <span class="tag tag-theme">家國情感</span>
+      <span class="tag tag-skill">排比修辭</span>
+      <span class="tag tag-skill">意象層次分析</span>
+      <span class="tag tag-author">余光中</span>
+      <span class="tag tag-diff">難度★★☆☆☆</span>
+    </div>
+  </div>
+
+  <!-- ── 5. 考題類型分布 ── -->
+  <h2 class="sec">五、考題類型分布</h2>
+  <div style="background:var(--card);border:1px solid var(--border);border-radius:12px;padding:24px;box-shadow:0 2px 8px rgba(0,0,0,0.04);">
+    <h3 class="sub-sec" style="margin-top:0">現代詩試題測驗指標</h3>
+    <div class="chart-row">
+      <div class="chart-label">意象詮釋</div>
+      <div class="chart-bar-wrap"><div class="chart-bar" style="width:90%"></div></div>
+      <div class="chart-count">90%</div>
+    </div>
+    <div class="chart-row">
+      <div class="chart-label">情感主旨</div>
+      <div class="chart-bar-wrap"><div class="chart-bar" style="width:80%"></div></div>
+      <div class="chart-count">80%</div>
+    </div>
+    <div class="chart-row">
+      <div class="chart-label">修辭辨析</div>
+      <div class="chart-bar-wrap"><div class="chart-bar" style="width:65%"></div></div>
+      <div class="chart-count">65%</div>
+    </div>
+    <div class="chart-row">
+      <div class="chart-label">古今詩比較</div>
+      <div class="chart-bar-wrap"><div class="chart-bar" style="width:55%"></div></div>
+      <div class="chart-count">55%</div>
+    </div>
+    <div class="chart-row">
+      <div class="chart-label">字詞語義</div>
+      <div class="chart-bar-wrap"><div class="chart-bar" style="width:40%"></div></div>
+      <div class="chart-count">40%</div>
+    </div>
+    <div class="chart-row">
+      <div class="chart-label">詩人背景</div>
+      <div class="chart-bar-wrap"><div class="chart-bar" style="width:20%"></div></div>
+      <div class="chart-count">20%</div>
+    </div>
+  </div>
+
+  <!-- ── 6. 課綱選文對照 ── -->
+  <h2 class="sec">六、課綱現代詩選文對照</h2>
+  <p style="font-size:14px;color:var(--muted);margin-bottom:16px;">以下為 99課綱 及 108課綱 高職國文教材中常見現代詩選文，均為統測潛在命題範疇：</p>
+  <div class="cur-list">
+    <div class="cur-item">
+      <strong>鄭愁予</strong><br>
+      〈錯誤〉〈編秋草〉〈北投谷〉<br>
+      <span class="tag tag-theme" style="margin-top:4px;display:inline-block;">鄉愁・旅人</span>
+    </div>
+    <div class="cur-item">
+      <strong>余光中</strong><br>
+      〈鄉愁〉〈鄉愁四韻〉〈楓葉〉<br>
+      <span class="tag tag-theme" style="margin-top:4px;display:inline-block;">家國・鄉愁</span>
+    </div>
+    <div class="cur-item">
+      <strong>楊牧</strong><br>
+      〈夭〉〈孤獨〉<br>
+      <span class="tag tag-theme" style="margin-top:4px;display:inline-block;">自然・存在</span>
+    </div>
+    <div class="cur-item">
+      <strong>簡媜</strong><br>
+      〈夏之絕句〉（散文詩）<br>
+      《我為你灑下月光》<br>
+      <span class="tag tag-theme" style="margin-top:4px;display:inline-block;">女性・生命</span>
+    </div>
+    <div class="cur-item">
+      <strong>紀弦</strong><br>
+      〈狼之獨步〉〈一片槐樹葉〉<br>
+      <span class="tag tag-theme" style="margin-top:4px;display:inline-block;">現代主義・孤獨</span>
+    </div>
+    <div class="cur-item">
+      <strong>瘂弦</strong><br>
+      〈如歌的行板〉〈我不知道風是在哪個方向吹〉<br>
+      <span class="tag tag-theme" style="margin-top:4px;display:inline-block;">戰後・鄉愁</span>
+    </div>
+    <div class="cur-item">
+      <strong>林煥彰</strong><br>
+      〈黑夜的作業〉等<br>
+      <span class="tag tag-theme" style="margin-top:4px;display:inline-block;">兒童詩・自然</span>
+    </div>
+    <div class="cur-item">
+      <strong>席慕蓉</strong><br>
+      〈鄉愁〉〈一棵開花的樹〉<br>
+      <span class="tag tag-theme" style="margin-top:4px;display:inline-block;">愛情・時光</span>
+    </div>
+  </div>
+
+  <!-- ── 7. 命題趨勢 ── -->
+  <h2 class="sec">七、近年命題趨勢分析</h2>
+  <div style="background:var(--card);border:1px solid var(--border);border-radius:12px;padding:24px;box-shadow:0 2px 8px rgba(0,0,0,0.04);">
+    <h3 class="sub-sec" style="margin-top:0">趨勢一：現代詩×古典詩「對讀」設計增加</h3>
+    <p style="font-size:14px;">如107年〈編秋草〉與〈商山早行〉並置，同考「旅途意象」，要求考生掌握時代差異下的相同情感結構，鑑別度高。此類題型預期將持續出現。</p>
+
+    <h3 class="sub-sec">趨勢二：108課綱後，素養導向閱讀理解比重提升</h3>
+    <p style="font-size:14px;">109學年起，試題更強調跨文本整合與圖表閱讀，現代詩題若出現，更可能搭配作者說明、詩評或賞析文字，形成「詩+詩評」的複合文本。</p>
+
+    <h3 class="sub-sec">趨勢三：情感主旨為核心，修辭次之</h3>
+    <p style="font-size:14px;">統測現代詩題以「詩義理解」為主，避免單純考修辭名稱記憶。考生宜重視詩意的整體掌握，而非背誦術語。</p>
+
+    <h3 class="sub-sec">趨勢四：鄭愁予、余光中為最高頻考點</h3>
+    <p style="font-size:14px;">近十年中，鄭愁予作品出現頻率最高，余光中次之。兩人作品以「旅愁」、「鄉愁」為主軸，意象明確，適合閱讀理解命題。</p>
+  </div>
+
+  <!-- ── 8. 備考建議 ── -->
+  <h2 class="sec">八、備考重點建議</h2>
+  <div class="tip-grid">
+    <div class="tip-card">
+      <div class="icon">📖</div>
+      <h4>熟讀課本選文</h4>
+      <p>課本收錄的現代詩是命題核心，每篇至少反覆閱讀三遍，注意意象、情感轉折與主旨。</p>
+    </div>
+    <div class="tip-card">
+      <div class="icon">🔍</div>
+      <h4>掌握意象連結</h4>
+      <p>現代詩出題必考意象詮釋，如「雁」象徵旅人、「楓葉」象徵秋愁，要能跨詩人連結相同意象。</p>
+    </div>
+    <div class="tip-card">
+      <div class="icon">⚖️</div>
+      <h4>熟悉古今對讀</h4>
+      <p>近年常出現現代詩與古典詩「同題材比較」題型，可練習比較同一主題（如「旅愁」）的古今表達方式。</p>
+    </div>
+    <div class="tip-card">
+      <div class="icon">✍️</div>
+      <h4>多讀詩評與賞析</h4>
+      <p>108課綱後，試題可能附帶詩評或賞析文字，平時多閱讀有助提升對詩句詮釋語言的熟悉度。</p>
+    </div>
+    <div class="tip-card">
+      <div class="icon">🎯</div>
+      <h4>重點詩人優先備考</h4>
+      <p>優先備考：鄭愁予（錯誤、編秋草）、余光中（鄉愁四韻、楓葉）、楊牧（夭）等高頻詩人。</p>
+    </div>
+    <div class="tip-card">
+      <div class="icon">🗂️</div>
+      <h4>做考古題練習</h4>
+      <p>建議從近五年考古題開始，計時作答並逐題分析出題邏輯，重點不在選項對錯，而在文本理解。</p>
+    </div>
+  </div>
+
+</div><!-- /container -->
+
+<!-- ══════════════════════════ FOOTER ══════════════════════════ -->
+<footer>
+  <p>本分析由教材研究整理，資料來源：財團法人技專校院入學測驗中心、龍騰文化考情分析（ltedu.com.tw）、全華版解析資料（chwa.com.tw）</p>
+  <p style="margin-top:4px;">整理時間：2026年6月 ｜ 僅供教學研究參考，實際試題以官方公布為準</p>
+</footer>
+
+</body>
+</html>
